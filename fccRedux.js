@@ -15,6 +15,7 @@ const store = Redux.createStore(reducer);
 let count = 0;
 
 // change code below this line
+store.subscribe(() => count ++ ) //Callback function.. call an action after(the back end) the function
 
 // change code above this line
 
