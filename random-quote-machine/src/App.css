@@ -1,5 +1,6 @@
 .App {
-  text-align: center; /*User Story #11: The #quote-box wrapper element should be horizontally centered. Please run tests with browser*/
+  text-align: center;
+  /*User Story #11: The #quote-box wrapper element should be horizontally centered. Please run tests with browser*/
 }
 
 .App-logo {
@@ -32,6 +33,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
