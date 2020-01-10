@@ -27,15 +27,9 @@ class App extends Component {
 
   render() {
     return ( <
-      div className = "App"
-      id = "quote-box" >
-      <
-      Button buttonDisplayName = "Next Quote"
-      clickHandler = {
-        this.nextQuoteClickHandler
-      }
-      /> <
-      /div>
+      div className="App" id="quote-box" >
+        <Button buttonDisplayName = "Next Quote" clickHandler = {this.nextQuoteClickHandler}/>
+      </div>
     );
   }
 }
