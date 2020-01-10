@@ -1,6 +1,5 @@
-import React, {
-  Component
-} from "react";
+import React, {Component} from "react";
+import {random} from "lodash";
 import "./App.css";
 import Button from "./components/Button";
 
@@ -10,7 +9,8 @@ class App extends Component {
     this.state = {
       quotes: [],
       selectedQuoteIndex: null
-    };
+    }
+    this.selectQuoteIndex=this.selectQuoteIndex.bind(this);
   }
 
   componentDidMount() {
@@ -18,16 +18,22 @@ class App extends Component {
         "https://gist.githubusercontent.com/natebass/b0a548425a73bdf8ea5c618149fe1fce/raw/f4231cd5961f026264bb6bb3a6c41671b044f1f4/quotes.json"
       )
       .then(data => data.json())
-      .then(d => console.log(d));
+      .then(quotes => this.setState({ quotes }, () => {
+        this.setState({ selectedQuoteIndex: this.selectQuoteIndex() })
+      }));
   }
 
-  nextQuoteClickHandler() {
-    console.log("hi");
+  selectQuoteIndex() {
+    if(!this.state.quotes.length) {
+      return;
+    }
+    return random(0, this.state.quotes.length - 1);
   }
 
   render() {
-    return ( <
-      div className="App" id="quote-box" >
+    console.log(this.state.selectedQuoteIndex);
+    return ( 
+      <div className="App" id="quote-box" >
         <Button buttonDisplayName = "Next Quote" clickHandler = {this.nextQuoteClickHandler}/>
       </div>
     );
